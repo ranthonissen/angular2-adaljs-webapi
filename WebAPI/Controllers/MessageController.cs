@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
+    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "get")]
     public class MessageController : ApiController
     {
         private IList<Message> _messages = new List<Message>()

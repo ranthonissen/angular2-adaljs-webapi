@@ -10,28 +10,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var secret_service_1 = require("./secret.service");
+var router_1 = require("@angular/router");
 var core_2 = require("ng2-adal/core");
-var AppComponent = (function () {
-    function AppComponent(adalService, secretService) {
+var RouteGuard = (function () {
+    function RouteGuard(adalService, router) {
         this.adalService = adalService;
-        this.secretService = secretService;
-        this.name = 'Angular';
-        this.adalService.init(this.secretService.adalConfig);
+        this.router = router;
     }
-    AppComponent.prototype.ngOnInit = function () {
-        this.adalService.handleWindowCallback();
-        this.adalService.getUser();
+    RouteGuard.prototype.canActivate = function () {
+        if (this.adalService.userInfo.isAuthenticated) {
+            return true;
+        }
+        else {
+            this.router.navigate(['/login']);
+            return false;
+        }
     };
-    return AppComponent;
+    return RouteGuard;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        template: "<a routerLink=\"/\">HOME</a> <a routerLink=\"messages\">Messages</a> <a routerLink=\"login\">Log in/out</a>\n    <h1>Hello {{name}}</h1>\n    <router-outlet></router-outlet>"
-    }),
+RouteGuard = __decorate([
+    core_1.Injectable(),
     __metadata("design:paramtypes", [core_2.AdalService,
-        secret_service_1.SecretService])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+        router_1.Router])
+], RouteGuard);
+exports.RouteGuard = RouteGuard;
+//# sourceMappingURL=RouteGuard.js.map

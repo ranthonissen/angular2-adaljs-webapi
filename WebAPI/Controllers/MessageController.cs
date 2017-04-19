@@ -7,7 +7,7 @@ using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "get")]
+    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
     [Authorize]
     public class MessageController : ApiController
     {

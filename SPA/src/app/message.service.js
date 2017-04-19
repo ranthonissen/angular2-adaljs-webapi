@@ -11,11 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 require("rxjs/add/operator/toPromise");
-var http_1 = require("@angular/http");
+var angular2_jwt_1 = require("angular2-jwt/angular2-jwt");
 var MessageService = (function () {
     function MessageService(http) {
         this.http = http;
-        this.messageUrl = 'http://localhost:50071/api/';
+        this.messageUrl = 'https://localhost:44387/api/';
     }
     MessageService.prototype.getMessage = function (id) {
         return this.http.get(this.messageUrl + 'message/' + id)
@@ -31,7 +31,7 @@ var MessageService = (function () {
 }());
 MessageService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [angular2_jwt_1.AuthHttp])
 ], MessageService);
 exports.MessageService = MessageService;
 //# sourceMappingURL=message.service.js.map

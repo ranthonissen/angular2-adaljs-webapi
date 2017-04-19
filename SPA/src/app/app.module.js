@@ -17,6 +17,7 @@ var secret_service_1 = require("./secret.service");
 var RouteGuard_1 = require("./RouteGuard");
 var login_component_1 = require("./login.component");
 var core_2 = require("ng2-adal/core");
+var angular2_jwt_1 = require("angular2-jwt/angular2-jwt");
 var routeConfig = [
     {
         path: 'messages',
@@ -35,7 +36,11 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(routeConfig), http_1.HttpModule],
         declarations: [app_component_1.AppComponent, message_component_1.MessageComponent, login_component_1.LoginComponent],
-        providers: [message_service_1.MessageService, secret_service_1.SecretService, core_2.AdalService, RouteGuard_1.RouteGuard],
+        providers: [message_service_1.MessageService, secret_service_1.SecretService, core_2.AdalService, RouteGuard_1.RouteGuard, angular2_jwt_1.provideAuth({
+                //headerName: 'Authorization',
+                //headerPrefix: 'Bearer',
+                tokenGetter: (function () { return localStorage.getItem('id_token'); }),
+            })],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

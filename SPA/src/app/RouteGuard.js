@@ -12,13 +12,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var core_2 = require("ng2-adal/core");
+var secret_service_1 = require("./secret.service");
 var RouteGuard = (function () {
-    function RouteGuard(adalService, router) {
+    function RouteGuard(adalService, secretService, router) {
         this.adalService = adalService;
+        this.secretService = secretService;
         this.router = router;
     }
     RouteGuard.prototype.canActivate = function () {
         if (this.adalService.userInfo.isAuthenticated) {
+            this.adalService.acquireToken(this.secretService.adalConfig.clientId)
+                .subscribe(function (tokenOut) { return localStorage.setItem('id_token', tokenOut); });
             return true;
         }
         else {
@@ -31,6 +35,7 @@ var RouteGuard = (function () {
 RouteGuard = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [core_2.AdalService,
+        secret_service_1.SecretService,
         router_1.Router])
 ], RouteGuard);
 exports.RouteGuard = RouteGuard;

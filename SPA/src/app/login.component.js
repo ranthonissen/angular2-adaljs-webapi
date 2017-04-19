@@ -28,7 +28,7 @@ var LoginComponent = (function () {
 LoginComponent = __decorate([
     core_1.Component({
         selector: 'welcome',
-        template: "<h1 *ngIf=\"!isAuthenticated\">You need to login first</h1>\n    <button *ngIf=\"!isAuthenticated\" (click)=\"logIn()\">Login</button>\n    <button *ngIf=\"isAuthenticated\" (click)=\"logOut()\">Logout</button>"
+        template: "<div *ngIf=\"!isAuthenticated\">You need to login first</div>\n    <button *ngIf=\"!isAuthenticated\" (click)=\"logIn()\">Login</button>\n    <button *ngIf=\"isAuthenticated\" (click)=\"logOut()\">Logout</button>"
     }),
     __metadata("design:paramtypes", [core_2.AdalService])
 ], LoginComponent);

@@ -36,7 +36,8 @@
       // adal libraries
       'ng2-adal': 'npm:ng2-adal',
       'adal': 'npm:adal-angular/lib',
-      'adal-angular': 'npm:adal-angular/lib'
+      'adal-angular': 'npm:adal-angular/lib',
+      'angular2-jwt': 'npm:angular2-jwt'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -57,7 +58,8 @@
       // adal packages
       'ng2-adal': { main: 'core.js', defaultExtension: 'js' },
       'adal-angular': { main: 'adal-angular', defaultExtension: 'js' },
-      'adal': { main: 'adal.js', defaultExtension: 'js' }
+      'adal': { main: 'adal.js', defaultExtension: 'js' },
+      'angular2-jwt': { main: 'angular2-jwt', defaultExtension: 'js' }
     }
   });
 })(this);

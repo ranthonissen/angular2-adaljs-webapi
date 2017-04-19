@@ -8,6 +8,7 @@ using WebAPI.Models;
 namespace WebAPI.Controllers
 {
     [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "get")]
+    [Authorize]
     public class MessageController : ApiController
     {
         private IList<Message> _messages = new List<Message>()

@@ -21,7 +21,7 @@ var RouteGuard = (function () {
     }
     RouteGuard.prototype.canActivate = function () {
         if (this.adalService.userInfo.isAuthenticated) {
-            this.adalService.acquireToken(this.secretService.adalConfig.clientId)
+            this.adalService.acquireToken(this.secretService.adalConfig.resourceId)
                 .subscribe(function (tokenOut) { return localStorage.setItem('id_token', tokenOut); });
             return true;
         }

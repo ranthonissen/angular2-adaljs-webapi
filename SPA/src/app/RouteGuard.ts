@@ -13,7 +13,7 @@ export class RouteGuard implements CanActivate {
 
     canActivate() {
         if (this.adalService.userInfo.isAuthenticated) {
-            this.adalService.acquireToken(this.secretService.adalConfig.clientId)
+            this.adalService.acquireToken(this.secretService.adalConfig.resourceId)
                 .subscribe(tokenOut => localStorage.setItem('id_token', tokenOut));
 
             return true;

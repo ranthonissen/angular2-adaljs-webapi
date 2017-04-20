@@ -5,4 +5,4 @@ Commits show the steps needed to recreate this sample application and are descri
 
 The [SPA branch](https://github.com/ranthonissen/angular2-adaljs-webapi/tree/spa) focusses on the setup of the single page application in Angular2.
 
-The [WebAPI](https://github.com/ranthonissen/angular2-adaljs-webapi/tree/WebAPI) focusses on the setup of the ASP.NET MVC WebAPI service.
+The [WebAPI branch](https://github.com/ranthonissen/angular2-adaljs-webapi/tree/WebAPI) focusses on the setup of the ASP.NET MVC WebAPI service.
